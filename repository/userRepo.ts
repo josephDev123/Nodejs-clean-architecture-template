@@ -1,9 +1,9 @@
-export class UserRepo {
-  private readonly _db: string[] = [];
+import { UserModel } from "../database/models/User";
 
-  async create(firstname: string) {
-    this._db.push(firstname);
-    console.log(firstname);
-    return;
+export class UserRepo {
+  async save(firstname: string, surname: string) {
+    const user = new UserModel({ firstname: firstname, surname: surname });
+    await user.save();
+    // console.log("user created");
   }
 }
