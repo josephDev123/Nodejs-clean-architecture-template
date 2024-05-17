@@ -7,7 +7,7 @@ export class UserController {
   }
 
   async create(req: Request, res: Response) {
-    return this.userService.create(req.body);
-    res.end();
+    this.userService.create(req.body);
+    return res.end();
   }
 }

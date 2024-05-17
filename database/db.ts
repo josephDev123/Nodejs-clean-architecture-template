@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
+export interface IDb {
+  url: string;
+  connect(): Promise<void>;
+}
 
-export class DbConnect {
+export class Db implements IDb {
   url = "";
   constructor(url: string) {
     this.url = url;

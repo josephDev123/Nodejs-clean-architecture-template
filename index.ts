@@ -4,7 +4,7 @@ import os from "os";
 import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
-import { DbConnect } from "./database/db";
+import { Db } from "./database/db";
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ const totalCores = cpus.length;
 const app = express();
 app.use(express.json());
 
-const db = new DbConnect(process.env.MONGO_URL!);
+const db = new Db(process.env.MONGO_URL!);
 db.connect();
 
 app.use("/user", User);
